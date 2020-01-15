@@ -26,7 +26,7 @@ export default Vue.extend({
   components: {},
 
   data: () => ({
-    drawer: true
+    drawer: false
   })
 });
 </script>
