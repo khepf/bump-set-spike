@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Landing from "../pages/PageLanding.vue";
-import NotFound from "../pages/PageNotFound.vue";
+import Landing from "@/pages/PageLanding.vue";
+import Forums from "@/pages/PageForums.vue";
+import NotFound from "@/pages/PageNotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "home" */ "@/pages/PageHome.vue")
+  },
+  {
+    path: "/forums",
+    name: "Forums",
+    component: Forums
   },
   {
     path: "*",
