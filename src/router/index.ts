@@ -1,5 +1,6 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import VueRouter, { RouterOptions, RouteConfig } from "vue-router";
+import store from "@/store";
 import Landing from "@/pages/PageLanding.vue";
 import Home from "@/pages/PageHome.vue";
 import ThreadShow from "@/pages/PageThreadShow.vue";
@@ -15,7 +16,7 @@ import NotFound from "@/pages/PageNotFound.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
+const routes = <Array<RouteConfig>>[
   {
     path: "/",
     name: "Landing",
@@ -97,7 +98,7 @@ const routes = [
     path: "/logout",
     name: "SignOut",
     meta: { requiresAuth: true },
-    beforeEnter(to, from, next) {
+    beforeEnter(to: any, from: any, next: any) {
       store.dispatch("signOut").then(() => next({ name: "Home" }));
     }
   },
@@ -108,7 +109,7 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({
+const router = <RouterOptions>new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
