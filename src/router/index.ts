@@ -115,4 +115,29 @@ const router = <RouterOptions>new VueRouter({
   routes
 });
 
+// @ts-ignore
+router.beforeEach((to: any, from: any, next: any) => {
+  console.log(`🚦 navigating to ${to.name} from ${from.name}`);
+
+  store.dispatch("auth/initAuthentication").then(user => {
+    if (to.matched.some((route: any) => route.meta.requiresAuth)) {
+      // protected route
+      if (user) {
+        next();
+      } else {
+        next({ name: "SignIn", query: { redirectTo: to.path } });
+      }
+    } else if (to.matched.some((route: any) => route.meta.requiresGuest)) {
+      // protected route
+      if (!user) {
+        next();
+      } else {
+        next({ name: "Home" });
+      }
+    } else {
+      next();
+    }
+  });
+});
+
 export default router;

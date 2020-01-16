@@ -32,7 +32,7 @@ export default {
         const userId = rootState.auth.authId;
         const publishedAt = Math.floor(Date.now() / 1000);
 
-        const thread = {
+        const thread: any = {
           title,
           forumId,
           publishedAt,
@@ -40,7 +40,7 @@ export default {
           firstPostId: postId,
           posts: {}
         };
-        thread.posts[postId] = postId;
+        thread.posts[String(postId)] = postId;
         const post = { text, publishedAt, threadId, userId };
 
         const updates: any = {};
@@ -87,7 +87,7 @@ export default {
               { root: true }
             );
 
-            resolve(state.items[threadId]);
+            resolve(state.items[String(threadId)]);
           });
       });
     },

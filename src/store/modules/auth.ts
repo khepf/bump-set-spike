@@ -24,7 +24,7 @@ export default {
         const unsubscribe = firebase.auth().onAuthStateChanged(user => {
           console.log("👣 the user has changed");
           if (user) {
-            dispatch("fetchAuthUser").then(dbUser => resolve(dbUser));
+            dispatch("fetchAuthUser").then((dbUser: any) => resolve(dbUser));
           } else {
             resolve(null);
           }
@@ -41,7 +41,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(data => {
-          const user = data.user;
+          const user: any = data.user;
           return dispatch(
             "users/createUser",
             { id: user.uid, email, name, username, password, avatar },
@@ -94,7 +94,7 @@ export default {
     },
 
     fetchAuthUser({ dispatch, commit }: any) {
-      const userId = firebase.auth().currentUser.uid;
+      const userId = firebase.auth().currentUser!.uid;
       return new Promise((resolve, reject) => {
         // check if user exists in the database
         firebase
