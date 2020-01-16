@@ -2,6 +2,7 @@
 - write interfaces
 - css for vue files
 - readme config on GH
+- navbar
 
 
 # bump-set-spike
