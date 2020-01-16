@@ -6,8 +6,10 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "@/plugins/vuetify";
+import AppDate from "@/components/AppDate.vue";
 
 Vue.use(Vuelidate);
+Vue.component("AppDate", AppDate);
 
 Vue.config.productionTip = false;
 
