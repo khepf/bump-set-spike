@@ -1,3 +1,9 @@
+# TODOS
+- write interfaces
+- css for vue files
+- readme config on GH
+
+
 # bump-set-spike
 
 ## Project setup
