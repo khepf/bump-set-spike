@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-container>
     <CategoryListItem
       v-for="category in categories"
       :category="category"
       :key="category['.key']"
     />
-  </div>
+  </v-container>
 </template>
 
 <script>

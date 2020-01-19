@@ -1,8 +1,12 @@
 <template>
-  <div v-if="asyncDataStatus_ready" class="col-full push-top">
-    <h1>Welcome to the Forum</h1>
-    <CategoryList :categories="categories" />
-  </div>
+  <v-container v-if="asyncDataStatus_ready" class="col-full push-top">
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8">
+        <h1>Welcome to the Forum</h1>
+        <CategoryList :categories="categories" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -10,6 +14,7 @@ import { mapActions } from "vuex";
 import CategoryList from "@/components/CategoryList";
 import asyncDataStatus from "@/mixins/asyncDataStatus";
 export default {
+  name: "forums",
   components: {
     CategoryList
   },
@@ -38,3 +43,4 @@ export default {
   }
 };
 </script>
+<style lang="scss"></style>

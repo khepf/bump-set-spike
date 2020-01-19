@@ -1,5 +1,5 @@
 <template>
-  <div class="forum-list">
+  <v-container class="forum-list">
     <h2 class="list-title">
       <router-link :to="{ name: 'Category', params: { id: category['.key'] } }">
         {{ category.name }}
@@ -7,7 +7,7 @@
     </h2>
 
     <ForumList :forums="categoryForums" />
-  </div>
+  </v-container>
 </template>
 
 <script>
