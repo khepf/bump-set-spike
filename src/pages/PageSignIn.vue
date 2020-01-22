@@ -1,14 +1,13 @@
 <template>
   <v-card width="400" class="mx-auto mt-5">
     <v-card-title>
-      <h1 class="display-1">Sign In</h1>
+      <h1 class="display-1">Login</h1>
     </v-card-title>
-    <v-card-text>
-      <v-form @submit.prevent="signIn" class="card card-form">
+    <v-form @submit.prevent="signIn">
+      <v-card-text>
         <div class="form-group">
           <v-text-field
             label="Email"
-            prepend-icon="mdi-account-circle"
             v-model="form.email"
             @blur="$v.form.email.$touch()"
             id="email"
@@ -26,12 +25,10 @@
         <div class="form-group">
           <v-text-field
             label="Password"
-            prepend-icon="mdi-lock"
             v-model="form.password"
             @blur="$v.form.password.$touch()"
             id="password"
             type="password"
-            class="form-input"
           ></v-text-field>
           <template v-if="$v.form.password.$error">
             <span v-if="!$v.form.password.required" class="form-error"
@@ -43,22 +40,22 @@
           </template>
         </div>
 
-        <v-divider></v-divider>
+        <div class="push-top"></div>
 
-        <div>
+        <div class="form-actions text-right">
           <router-link :to="{ name: 'Register' }"
             >Create an account?</router-link
           >
         </div>
-      </v-form>
-    </v-card-text>
-    <v-card-actions>
-      <v-btn type="submit" color="primary">Sign In</v-btn>
-    </v-card-actions>
-
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-btn type="submit" color="primary">Sign in</v-btn>
+      </v-card-actions>
+    </v-form>
     <div class="push-top text-center">
-      <v-btn @click="signInWithGoogle">
-        Sign in with Google
+      <v-btn @click="signInWithGoogle" class="btn-red btn-xsmall">
+        <v-icon color="grey darken-4">mdi-google</v-icon>Sign in via Google
       </v-btn>
     </div>
   </v-card>
@@ -116,3 +113,5 @@ export default {
   }
 };
 </script>
+
+<style scoped></style>

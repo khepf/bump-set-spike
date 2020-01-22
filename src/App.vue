@@ -14,7 +14,7 @@
           <a @click.prevent="$store.dispatch('auth/signOut')">Sign Out</a>
         </li>
       </ul>
-      <ul v-else>
+      <ul else>
         <li>
           <router-link :to="{ name: 'SignIn' }">Sign In</router-link>
         </li>

@@ -3,8 +3,8 @@
     <v-card-title>
       <h1 class="display-1">Register</h1>
     </v-card-title>
-    <v-card-text>
-      <v-form @submit.prevent="register">
+    <v-form @submit.prevent="register">
+      <v-card-text>
         <div class="form-group">
           <v-text-field
             label="Full Name"
@@ -99,13 +99,15 @@
             >
           </template>
         </div>
-      </v-form>
-    </v-card-text>
-    <v-card-actions>
-      <v-btn type="submit" color="primary">Register</v-btn>
-    </v-card-actions>
+      </v-card-text>
+
+      <v-card-actions>
+        <v-btn type="submit" color="primary">Register</v-btn>
+      </v-card-actions>
+    </v-form>
     <div class="push-top text-center">
       <v-btn @click="registerWithGoogle">
+        <v-icon color="grey darken-4">mdi-google</v-icon>
         Register via Google
       </v-btn>
     </div>
