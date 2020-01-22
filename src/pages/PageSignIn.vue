@@ -1,18 +1,19 @@
 <template>
-  <div class="flex-grid justify-center">
-    <div class="col-2">
-      <form @submit.prevent="signIn" class="card card-form">
-        <h1 class="text-center">Login</h1>
-
+  <v-card width="400" class="mx-auto mt-5">
+    <v-card-title>
+      <h1 class="display-1">Sign In</h1>
+    </v-card-title>
+    <v-card-text>
+      <v-form @submit.prevent="signIn" class="card card-form">
         <div class="form-group">
-          <label for="email">Email</label>
-          <input
+          <v-text-field
+            label="Email"
+            prepend-icon="mdi-account-circle"
             v-model="form.email"
             @blur="$v.form.email.$touch()"
             id="email"
             type="text"
-            class="form-input"
-          />
+          ></v-text-field>
           <template v-if="$v.form.email.$error">
             <span v-if="!$v.form.email.required" class="form-error"
               >This field is required</span
@@ -23,14 +24,15 @@
           </template>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input
+          <v-text-field
+            label="Password"
+            prepend-icon="mdi-lock"
             v-model="form.password"
             @blur="$v.form.password.$touch()"
             id="password"
             type="password"
             class="form-input"
-          />
+          ></v-text-field>
           <template v-if="$v.form.password.$error">
             <span v-if="!$v.form.password.required" class="form-error"
               >This field is required</span
@@ -41,24 +43,25 @@
           </template>
         </div>
 
-        <div class="push-top">
-          <button type="submit" class="btn-blue btn-block">Log in</button>
-        </div>
+        <v-divider></v-divider>
 
-        <div class="form-actions text-right">
+        <div>
           <router-link :to="{ name: 'Register' }"
             >Create an account?</router-link
           >
         </div>
-      </form>
+      </v-form>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn type="submit" color="primary">Sign In</v-btn>
+    </v-card-actions>
 
-      <div class="push-top text-center">
-        <button @click="signInWithGoogle" class="btn-red btn-xsmall">
-          <i class="fa fa-google fa-btn"></i>Sign in with Google
-        </button>
-      </div>
+    <div class="push-top text-center">
+      <v-btn @click="signInWithGoogle">
+        Sign in with Google
+      </v-btn>
     </div>
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -113,5 +116,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>
